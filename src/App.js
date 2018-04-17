@@ -1,17 +1,31 @@
 import React from 'react'
-import {Button} from 'antd-mobile'
+// import { connect } from './woniu-react-redux'
+import { addGun} from './index.redux'
 
-// import logo from './logo.svg';
-import './App.css';
-
-class App extends React.component {
-  render() {
+// 装饰器模式
+// @connect(
+//   state=>({ num: state}),
+//   {addGun, removeGun, addGunAsync,addTwice}
+// )
+class App extends React.Component{
+  render(){
+  // console.log(this.props)
+    // num addGun，removeGun，addGunAsync都是connect给的，不需要手动dispatch
     return (
-      <div className="App">
-        111111
+      <div>
+        <h2>现在有机枪{this.props.store.getState()}把</h2>
+        <button onClick={()=>{this.props.store.dispatch(addGun())}}>申请武器</button>
+        {/* <button onClick={this.props.removeGun}>上交武器</button> */}
+        {/* <button onClick={this.props.addGunAsync}>拖两天再给</button> */}
+        {/* <button onClick={this.props.addTwice}>申请两把</button> */}
       </div>
-    );
+    ) 
   }
 }
-
+// App = 
+// connect(
+//   state=>({ num: state}),
+//   {addGun, removeGun, addGunAsync}
+// )
+// (App)
 export default App;
