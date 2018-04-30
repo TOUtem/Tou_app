@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { counter } from './index.redux';
 import App from './App';
-
 const store = createStore(counter)
 
 function render() {
@@ -12,5 +11,5 @@ function render() {
 
 render()
 
-store.subscribe(render) // 状态改变之后render一下
+store.subscribe(render) //状态改变之后render一下
 
