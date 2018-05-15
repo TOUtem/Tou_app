@@ -1,15 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
-import { counter } from './index.redux';
-import App from './App';
-const store = createStore(counter)
+import { createStore, applyMiddleware, compose } from 'redux'
+import { Provider } from 'react-redux'
+import { BrowserRouter, Route, Redirect,Switch } from 'react-router-dom'
+import thunk from 'redux-thunk'
+import reducers from './reducer'
+import Login from './container/login/login'
+import Register from './container/register/register'
+import './index.css'
+const store = createStore(reducers, compose(
+	applyMiddleware(thunk),
+	window.devToolsExtension?window.devToolsExtension():f=>f
+))
 
-function render() {
-    ReactDOM.render(<App store={store}/>, document.getElementById('root'));
-}
-
-render()
-
-store.subscribe(render) //状态改变之后render一下
+ReactDOM.render(
+    (<Provider store={store}>
+        <BrowserRouter>
+            <div>
+                {/* <AuthRoute></AuthRoute> */}
+                {/* <Route path='/boss' component={Boss}></Route> */}
+                <Route path='/login' component={Login}></Route>
+                <Route path='/register' component={Register}></Route>
+            </div>
+        </BrowserRouter>
+    </Provider>
+    ),
+    document.getElementById('root')
+)
 
