@@ -24,12 +24,9 @@ class Login extends React.Component{
             <div>
                 <Logo></Logo>
                 <WingBlank>
-                <InputItem onChange={()=>{}}
-                    >用户</InputItem>
+                <InputItem onChange={()=>{}}>用户</InputItem>
 				<WhiteSpace />
-                    
-                <InputItem onChange={()=>{}}
-                >密码</InputItem>
+                <InputItem onChange={()=>{}}>密码</InputItem>
                 </WingBlank>
                 <WhiteSpace />
                 <Button onClick={this.handleLogin} type='primary'>登录</Button>
