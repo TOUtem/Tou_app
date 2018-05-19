@@ -24,14 +24,14 @@ class Login extends React.Component{
             <div>
                 <Logo></Logo>
                 <WingBlank>
-                <InputItem onChange={()=>{}}>用户</InputItem>
-				<WhiteSpace />
-                <InputItem onChange={()=>{}}>密码</InputItem>
+                    <InputItem onChange={()=>{}}>用户</InputItem>
+                    <WhiteSpace />
+                    <InputItem onChange={()=>{}}>密码</InputItem>
+                    <WhiteSpace />
+                    <Button onClick={this.handleLogin} type='primary'>登录</Button>
+                    <WhiteSpace />
+                    <Button onClick={this.register} type='primary'>注册</Button>
                 </WingBlank>
-                <WhiteSpace />
-                <Button onClick={this.handleLogin} type='primary'>登录</Button>
-                <WhiteSpace />
-                <Button onClick={this.register} type='primary'>注册</Button>
             </div>
         )
     }
